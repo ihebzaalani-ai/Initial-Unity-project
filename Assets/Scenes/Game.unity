@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 179103603}
   - component: {fileID: 179103602}
   - component: {fileID: 179103601}
+  - component: {fileID: 179103604}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -618,6 +619,8 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
+  slashVisual: {fileID: 0}
+  slashDuration: 0.1
 --- !u!114 &179103602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,6 +635,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaxLight
   waxSystem: {fileID: 0}
   playerLight: {fileID: 1010031502}
+  flickerAmount: 0.08
+  flickerSpeed: 10
   minRadius: 1.5
   maxRadius: 3.5
   minIntensity: 0.2
@@ -653,6 +658,19 @@ MonoBehaviour:
   maxWax: 100
   drainPerSecond: 0.5
   currentWax: 0
+--- !u!114 &179103604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179103594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1ec7e7c95bf9149861faaa7e662c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  defaultDuration: 0.1
 --- !u!1 &291891884
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +761,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -888,6 +907,20 @@ MonoBehaviour:
   autoDetectFromTilemap: 1
   minBounds: {x: -12, y: -5}
   maxBounds: {x: 12, y: 5}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62f00af7536d544391d7ccec3a19510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
+  defaultMagnitude: 0.25
+  defaultDuration: 0.2
 --- !u!1 &552129379
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,6 +1154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 788215196}
   - component: {fileID: 788215195}
+  - component: {fileID: 788215197}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1143,6 +1177,8 @@ MonoBehaviour:
   enemiesText: {fileID: 876516153}
   waxText: {fileID: 0}
   winPanel: {fileID: 108345993}
+  gameOverPanel: {fileID: 0}
+  menuSceneName: Menu
   enemiesDefeated: 0
   totalEnemies: 0
   waxCollected: 0
@@ -1161,6 +1197,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &788215197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788215194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6b04497917c28408b5536ba18e7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
+  pausePanel: {fileID: 0}
+  menuSceneName: Menu
 --- !u!1 &834965191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,6 +1224,7 @@ GameObject:
   - component: {fileID: 834965193}
   - component: {fileID: 834965192}
   - component: {fileID: 834965196}
+  - component: {fileID: 834965197}
   m_Layer: 3
   m_Name: Enemy2
   m_TagString: Untagged
@@ -1339,8 +1390,22 @@ MonoBehaviour:
   attackRange: 1.2
   attackDamage: 15
   attackCooldown: 1.5
+  knockbackForce: 6
   maxHealth: 30
   currentHealth: 0
+--- !u!114 &834965197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834965191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1ec7e7c95bf9149861faaa7e662c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  defaultDuration: 0.1
 --- !u!1 &860279398 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6950587337438286655, guid: 41d6d62f2f1a57341b0bfa6b498a13f6, type: 3}
@@ -6431,6 +6496,7 @@ GameObject:
   - component: {fileID: 2067731512}
   - component: {fileID: 2067731511}
   - component: {fileID: 2067731510}
+  - component: {fileID: 2067731515}
   m_Layer: 3
   m_Name: Enemy1
   m_TagString: Untagged
@@ -6458,6 +6524,7 @@ MonoBehaviour:
   attackRange: 1.2
   attackDamage: 15
   attackCooldown: 1.5
+  knockbackForce: 6
   maxHealth: 30
   currentHealth: 0
 --- !u!70 &2067731511
@@ -6598,6 +6665,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2067731515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067731509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1ec7e7c95bf9149861faaa7e662c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  defaultDuration: 0.1
 --- !u!1001 &6641836181346774036
 PrefabInstance:
   m_ObjectHideFlags: 0
