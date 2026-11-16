@@ -1598,7 +1598,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Brazier
   isFinalBrazier: 1
-  winPanel: {fileID: 0}
+  delay: 0.5
+  endingSceneName: Ending
   respawnOffset: {x: 0, y: 0, z: 0}
 --- !u!212 &906189789
 SpriteRenderer:
@@ -1814,6 +1815,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaxBarUI
   waxSlider: {fileID: 0}
   waxSystem: {fileID: 0}
+  backgroundImage: {fileID: 0}
+  fillImage: {fileID: 0}
+  showBorder: 1
+  borderColor: {r: 0.95, g: 0.78, b: 0.25, a: 1}
+  borderThickness: 3
+  useOuterOutline: 1
+  outerOutlineColor: {r: 0, g: 0, b: 0, a: 0.85}
+  outerOutlineDistance: {x: 1.5, y: -1.5}
+  waxFillColor: {r: 1, g: 0.75, b: 0.15, a: 1}
+  lowWaxColor: {r: 0.95, g: 0.22, b: 0.15, a: 1}
+  lowWaxThreshold: 0.25
+  interpolateColor: 1
+  pulseOnLowWax: 1
+  pulseSpeed: 6
+  backgroundColor: {r: 0.12, g: 0.12, b: 0.15, a: 0.95}
+  expandToFullHeight: 1
+  innerPadding: 0
+  showWaxText: 1
+  autoCreateText: 1
+  waxText: {fileID: 0}
+  textFormat: 'Wax: {0:0} / {1:0}'
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+  textFontSize: 14
+  applyCustomTransform: 0
+  customBarSize: {x: 300, y: 32}
+  customPosition: {x: 20, y: -20}
 --- !u!1 &1010031500
 GameObject:
   m_ObjectHideFlags: 0
